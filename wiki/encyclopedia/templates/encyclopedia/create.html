@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+<!-- Title content -->
+{% block title %}
+    Create New Page
+{% endblock %}
+
+<!-- Body content -->
+{% block body %}
+    <h1>Create New Page</h1>
+
+    <!-- Form to create a new page -->
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" name="title" id="title">
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" name="content" id="content" rows="10"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+{% endblock %}
